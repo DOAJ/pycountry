@@ -284,3 +284,27 @@ PyInstaller Compatibility
 Some users have reported issues using PyCountry with PyInstaller guidance on
 how to handle the issues can be found in the `PyInstaller Google Group
 <https://groups.google.com/g/pyinstaller/c/OYhJdeZ9010/m/vLhYAWUzAQAJ>`_.
+
+
+Generating the data
+-------------------
+
+The script `generate.py` will pull the specified version of Debian's ISO codes
+list (see https://salsa.debian.org/iso-codes-team/iso-codes/-/blob/main/CHANGELOG.md)
+set that in the `REVISION` constant, e.g.
+
+.. code:: python
+
+   REVISION = "v4.12.0"
+
+Note that this will clone the whole Debian repo so is quite bandwidth-intensive.
+
+The script will then process these into the `src` directory of this project, which can
+be committed back into this repo.
+
+If you see the error `FileNotFoundError: [Errno 2] No such file or directory: 'msgfmt'`
+You may need to install the `gettext` package on your system, e.g.
+
+.. code:: sh
+
+   sudo apt install gettext
