@@ -1926,6 +1926,13 @@
       "name": "Zimbabwe",
       "numeric": "716",
       "official_name": "Republic of Zimbabwe"
+    },
+    {
+      "alpha_2": "XK",
+      "alpha_3": "XKX",
+      "numeric": "926",
+      "name": "Kosovo",
+      "flag": "🇽🇰"
     }
   ]
 }

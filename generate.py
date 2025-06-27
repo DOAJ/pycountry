@@ -48,6 +48,28 @@ for standard in STANDARDS:
     dst = os.path.join(database_dir, "iso%s.json" % standard)
     shutil.copyfile(src, dst)
 
+# --- Manually patch Kosovo into iso3166-1.json ---
+import json
+
+filename = os.path.join(database_dir, "iso3166-1.json")
+with open(filename, "r", encoding="utf-8") as f:
+    countries_data = json.load(f)
+
+countries_list = countries_data["3166-1"]
+
+# Avoid duplication if Kosovo already exists
+if not any(c.get("alpha_2") == "XK" for c in countries_list):
+    countries_list.append({
+        "alpha_2": "XK",
+        "alpha_3": "XKX",
+        "numeric": "926",
+        "name": "Kosovo",
+        "flag": "🇽🇰"
+    })
+
+# Write back the full dict with your modified list
+with open(filename, "w", encoding="utf-8") as f:
+    json.dump(countries_data, f, indent=2, ensure_ascii=False)
 
 # Put the PO files in place and compile them
 for standard in STANDARDS:

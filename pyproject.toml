@@ -16,7 +16,7 @@ packages = "pycountry"
 
 [tool.poetry]
 name = "pycountry"
-version = "24.6.2.dev0"
+version = "24.6.2.dev0+doajfork"
 description = "ISO country, subdivision, language, currency and script definitions and their translations"
 authors = ["Christian Theune <ct@flyingcircus.io>"]
 maintainers = [
@@ -25,7 +25,7 @@ maintainers = [
 	]
 license = "LGPL-2.1-only"
 readme = "README.rst"
-repository = "https://github.com/flyingcircusio/pycountry"
+repository = "https://github.com/doaj/pycountry"
 keywords = [ "country", "subdivision", "language", "currency", "iso", "3166", "639", "4217", "15924", "3166-1","3166-2", "3166-3"]
 classifiers = [
         "Development Status :: 5 - Production/Stable",

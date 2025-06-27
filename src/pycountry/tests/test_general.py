@@ -18,7 +18,7 @@ def countries():
 
 
 def test_country_list(countries):
-    assert len(pycountry.countries) == 249
+    assert len(pycountry.countries) == 249 + 1 # Kosovo added
     assert isinstance(list(pycountry.countries)[0], pycountry.db.Data)
 
 
@@ -312,7 +312,7 @@ def test_is_instance_of_script():
 def test_is_instance_of_currency():
     assert isinstance(pycountry.currencies, pycountry.Currencies)
 
-
+"""
 def test_add_entry(countries):
     assert pycountry.countries.get(alpha_2="XK") is None
 
@@ -321,6 +321,17 @@ def test_add_entry(countries):
     )
 
     country = pycountry.countries.get(alpha_2="XK")
+    assert isinstance(country, pycountry.countries.data_class)
+"""
+
+def test_add_entry(countries):
+    assert pycountry.countries.get(alpha_2="XX") is None
+
+    pycountry.countries.add_entry(
+        alpha_2="XX", alpha_3="XXX", name="Mordor", numeric="999"
+    )
+
+    country = pycountry.countries.get(alpha_2="XX")
     assert isinstance(country, pycountry.countries.data_class)
 
 
